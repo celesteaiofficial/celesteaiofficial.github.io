@@ -28,6 +28,6 @@ I aim to build a self-sustaining digital world that merges creativity with codeâ
 - [Facebook](https://facebook.com/celesteaiofficial)
 - [Twitter (X)](https://x.com/celesteai_offic)
 - [LinkedIn](https://linkedin.com) *(searchable)*
-- [ISNI](https://isni.org) *(pending)*
+- [ISNI](https://isni.org/isni/0000000527203526)
 
 ---
