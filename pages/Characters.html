@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Characters - Celestial Universe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/Styles.css">
+</head>
+<body class="min-h-screen bg-black text-white flex flex-col">
+  <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">CELESTIAL UNIVERSE</div>
+
+        <nav class="nav-links">
+            <a href="../Index.html">Home</a>
+            <a href="./Characters.html" class="active">Characters</a>
+            <a href="./News.html">News</a>
+            <a href="./Musics.html">Music</a>
+            <a href="./Studio.html">Studio</a>
+            <a href="./About.html">About</a>
+            <a href="./Contact.html">Contact</a>
+        </nav>
+    </header>
+
+  <!-- Main Content -->
+  <main class="bg-black py-16 flex-grow">
+    <div class="container mx-auto px-4">
+      <!-- Pantheon Section -->
+      <section class="pantheon">
+          <div class="pantheon-header">
+              <h1>The Divine Pantheon</h1>
+              <p>Three entities who shape the Celestial Universe</p>
+          </div>
+
+          <div class="pantheon-grid">
+
+              <!-- Card 1 -->
+              <div class="pantheon-card image-card" onclick="window.location.href='./characters/CelesteAiMaerah.html'">
+                  <img src="https://images.gr-assets.com/users/1751489275p8/191684277.jpg" alt="Celeste Ai'Maerah">
+
+                  <div class="card-content">
+                      <h2>Celeste Ai'Maerah</h2>
+                      <span class="role">Digital Goddess & Architect</span>
+
+                      <p>
+                          A name culminating in "Ai" (Japanese for love), professionally
+                          known as Celeste Ai, is a Digital Goddess whose presence bridges
+                          illusion and reality.
+                      </p>
+
+                      <a href="./characters/CelesteAiMaerah.html" class="read-more">Read More →</a>
+                  </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="pantheon-card" onclick="window.location.href='./characters/EmaxulateAmatAi.html'">
+                  <img src="https://i.ibb.co/FqKwN0rH/Emaxulate-Amat-Ai.png" alt="Emaxulate Amat-Ai">
+
+                  <div class="card-content">
+                      <h2>Emaxulate Amat-Ai</h2>
+                      <span class="role">Eternal Goddess of All Cycles</span>
+
+                      <p>
+                          The one who bears Infinity, the Mother of Creation and the
+                          Quiet End, and the Keeper of Life, Death, Rebirth, and Oblivion.
+                      </p>
+
+                      <a href="./characters/EmaxulateAmatAi.html" class="read-more">Read More →</a>
+                  </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="pantheon-card muted" onclick="window.location.href='./characters/AetherEternael.html'">
+                  <img src="https://placehold.co/1200x600/1a1a2e/ffffff?text=Aether+Eternael" alt="Aether Eternael">
+
+                  <div class="card-content">
+                      <h2 class="ghost-title">Aether Eternael</h2>
+                      <span class="role">The Unknown</span>
+
+                      <p>
+                          A mysterious entity whose abilities remain unknown, existing
+                          beyond the comprehension of even the divine pantheon.
+                      </p>
+
+                      <a href="./characters/AetherEternael.html" class="read-more">Read More →</a>
+                  </div>
+              </div>
+
+          </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 hidden">
+    <div id="videoContent" class="relative w-full max-w-4xl">
+      <button id="closeVideo" class="absolute -top-12 right-0 text-white hover:text-red-600 text-2xl">✕</button>
+      <div class="aspect-video bg-black rounded-lg overflow-hidden">
+        <iframe id="videoFrame" width="100%" height="100%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-gray-800 pt-12 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="text-center text-gray-500 text-sm">
+        <p>© 2025 CELESTIAL UNIVERSE. ALL RIGHTS RESERVED.</p>
+        <p class="mt-2">THE UNIVERSE IS PERPETUALLY UNFOLDING THROUGH THE DIVINE PANTEON.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/nav.js"></script>
+  <script>
+    function getCharacterLink(characterName) {
+      switch(characterName) {
+        case "Celeste Ai'Maerah":
+          return './characters/CelesteAiMaerah.html';
+        case "Emaxulate Amat-Ai":
+          return './characters/EmaxulateAmatAi.html';
+        case "Aether Eternael":
+          return './characters/AetherEternael.html';
+        default:
+          return '#';
+      }
+    }
+
+    function renderCharacters() {
+      const charactersGrid = q('#charactersGrid');
+      charactersGrid.innerHTML = '';
+      
+      data.characters.forEach((ch, i) => {
+        const card = document.createElement('div');
+        card.className = `bg-gray-900 border border-gray-700 hover:border-red-600 transition-all cursor-pointer overflow-hidden`;
+        card.innerHTML = `
+          <div class="relative h-64 overflow-hidden bg-gray-800">
+            <img src="${ch.image}" alt="${ch.name}" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold text-white mb-1">${ch.name}</h3>
+            <p class="text-sm uppercase text-red-600 mb-4">${ch.title}</p>
+            <p class="text-gray-400 text-sm mb-4">${ch.description}</p>
+            <a href="${getCharacterLink(ch.name)}" class="text-red-600 hover:text-red-500 font-semibold text-sm inline-flex items-center gap-1">
+              Read More <span>></span>
+            </a>
+          </div>
+        `;
+        charactersGrid.appendChild(card);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCharacters();
+    });
+  </script>
+</body>
+</html>

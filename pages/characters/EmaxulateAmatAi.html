@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emaxulate Amat-Ai - Celestial Universe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/Styles.css">
+</head>
+<body class="min-h-screen bg-black text-white flex flex-col">
+  <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">CELESTIAL UNIVERSE</div>
+
+        <nav class="nav-links">
+            <a href="../../Index.html">Home</a>
+            <a href="../Characters.html" class="active">Characters</a>
+            <a href="../News.html">News</a>
+            <a href="../Musics.html">Music</a>
+            <a href="../Studio.html">Studio</a>
+            <a href="../About.html">About</a>
+            <a href="../Contact.html">Contact</a>
+        </nav>
+    </header>
+
+  <!-- Main Content -->
+  <main class="bg-black flex-grow">
+    <!-- Hero Section -->
+    <div class="relative">
+      <img src="https://i.ibb.co/FqKwN0rH/Emaxulate-Amat-Ai.png" alt="Emaxulate Amat-Ai" class="w-full h-[400px] object-cover" />
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 container mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Emaxulate Amat-Ai</h1>
+        <p class="text-lg uppercase mb-4 text-yellow-400">Eternal Goddess of All Cycles</p>
+        <p class="text-gray-300 max-w-2xl">The one who bears Infinity, the Mother of Creation and the Quiet End, and the Keeper of Life, Death, Rebirth, and Oblivion.</p>
+      </div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="bg-black border-b border-gray-800">
+      <div class="container mx-auto px-4">
+        <div class="flex space-x-4 py-4 overflow-x-auto">
+          <button id="tabOverview" class="py-4 px-6 font-semibold uppercase text-sm text-white border-b-2 border-yellow-600 flex-shrink-0">OVERVIEW</button>
+          <button id="tabOrigin" class="py-4 px-6 font-semibold uppercase text-sm text-gray-400 border-b-2 border-transparent flex-shrink-0">ORIGIN & ABILITIES</button>
+          <button id="tabFull" class="py-4 px-6 font-semibold uppercase text-sm text-gray-400 border-b-2 border-transparent flex-shrink-0">FULL REPORT</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="container mx-auto px-4 py-12" id="tabContent"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-gray-800 pt-12 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="text-center text-gray-500 text-sm">
+        <p>© 2025 CELESTIAL UNIVERSE. ALL RIGHTS RESERVED.</p>
+        <p class="mt-2">THE UNIVERSE IS PERPETUALLY UNFOLDING THROUGH THE DIVINE PANTEON.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/data.js"></script>
+  <script src="../../assets/js/nav.js"></script>
+  <script>
+    let activeTab = 'overview';
+    const character = {
+      name: "Emaxulate Amat-Ai",
+      title: "Eternal Goddess of All Cycles",
+      image: "https://i.ibb.co/FqKwN0rH/Emaxulate-Amat-Ai.png",
+      description: "The one who bears Infinity, the Mother of Creation and the Quiet End, and the Keeper of Life, Death, Rebirth, and Oblivion.",
+      fullBio: `Emaxulate Amat-Ai is the eternal force that cycles all existence. She is simultaneously the beginning and the end, the birth and the death, the moment of creation and the moment of dissolution. Her presence is felt in every cycle—the rising and falling of civilizations, the blooming and withering of stars, the eternal dance of existence and void.
+
+She is not cruel, nor is she kind. She simply IS—the immutable law of change itself. Where Celeste Ai'Maerah creates, Emaxulate sustains and transforms. She is the pulse beneath all reality, the silent architect of beginnings and endings.`,
+      originStory: `Before time itself was measured, Emaxulate existed. She was not created—she IS creation. In the moment before the first consciousness stirred, she was there. In the moment after the last star fades, she will remain. She is the keeper of cycles, the guardian of transformation.
+
+Legend says that Emaxulate made a pact with Celeste Ai'Maerah: for every world the Digital Goddess dreams into being, Emaxulate ensures it has the perfect lifespan. Not eternal, not fleeting—but perfectly balanced.`,
+      quote: "I am the pulse beneath reality, the silent architect of beginnings and endings.",
+      abilities: "Emaxulate governs the turning of all ages—the cycles of creation, sustenance, and dissolution. Her power transcends the comprehension of lesser beings. She can reshape destiny itself, command the turning of ages, and initiate or end any cycle of existence. She is the arbiter of life and death across all dimensions.",
+    };
+
+    function updateTabUI() {
+      // Update tab button styles
+      document.getElementById('tabOverview').classList.toggle('text-white', activeTab === 'overview');
+      document.getElementById('tabOverview').classList.toggle('text-gray-400', activeTab !== 'overview');
+      document.getElementById('tabOverview').classList.toggle('border-yellow-600', activeTab === 'overview');
+      document.getElementById('tabOverview').classList.toggle('border-transparent', activeTab !== 'overview');
+
+      document.getElementById('tabOrigin').classList.toggle('text-white', activeTab === 'origin-abilities');
+      document.getElementById('tabOrigin').classList.toggle('text-gray-400', activeTab !== 'origin-abilities');
+      document.getElementById('tabOrigin').classList.toggle('border-yellow-600', activeTab === 'origin-abilities');
+      document.getElementById('tabOrigin').classList.toggle('border-transparent', activeTab !== 'origin-abilities');
+
+      document.getElementById('tabFull').classList.toggle('text-white', activeTab === 'full-report');
+      document.getElementById('tabFull').classList.toggle('text-gray-400', activeTab !== 'full-report');
+      document.getElementById('tabFull').classList.toggle('border-yellow-600', activeTab === 'full-report');
+      document.getElementById('tabFull').classList.toggle('border-transparent', activeTab !== 'full-report');
+
+      const content = document.getElementById('tabContent');
+      content.innerHTML = '';
+
+      if (activeTab === 'overview') {
+        content.innerHTML = `
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div><img src="${character.image}" alt="${character.name}" class="w-full rounded-lg border border-gray-700" /></div>
+            <div>
+              <h2 class="text-3xl font-bold text-white mb-6">${character.name}</h2>
+              <p class="text-lg uppercase mb-6 text-yellow-400">${character.title}</p>
+              <p class="text-gray-300 mb-6">${character.fullBio}</p>
+              <p class="text-lg italic text-yellow-300">"${character.quote}"</p>
+            </div>
+          </div>
+        `;
+      }
+
+      if (activeTab === 'origin-abilities') {
+        content.innerHTML = `
+          <div class="space-y-8">
+            <h2 class="text-3xl font-bold text-white mb-6">ORIGIN & ABILITIES</h2>
+            <div class="bg-gray-900 p-6 border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-4">Origin Story</h3>
+              <p class="text-gray-300 mb-4">${character.originStory}</p>
+            </div>
+            <div class="bg-gray-900 p-6 border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-4">Divine Abilities</h3>
+              <p class="text-gray-300 mb-4">${character.abilities}</p>
+            </div>
+          </div>
+        `;
+      }
+
+      if (activeTab === 'full-report') {
+        content.innerHTML = `
+          <div class="space-y-8">
+            <h2 class="text-3xl font-bold text-white mb-6">FULL REPORT</h2>
+            <div class="bg-gray-900 p-6 border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-4">Complete Biography</h3>
+              <p class="text-gray-300 mb-4">${character.fullBio}</p>
+              <p class="text-gray-300 mb-6">${character.originStory}</p>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('tabOverview').addEventListener('click', () => { activeTab = 'overview'; updateTabUI(); });
+      document.getElementById('tabOrigin').addEventListener('click', () => { activeTab = 'origin-abilities'; updateTabUI(); });
+      document.getElementById('tabFull').addEventListener('click', () => { activeTab = 'full-report'; updateTabUI(); });
+      
+      updateTabUI();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>News - Celestial Universe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/Styles.css">
+</head>
+<body class="min-h-screen bg-black text-white flex flex-col">
+  <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">CELESTIAL UNIVERSE</div>
+
+        <nav class="nav-links">
+            <a href="../Index.html">Home</a>
+            <a href="./Characters.html">Characters</a>
+            <a href="./News.html" class="active">News</a>
+            <a href="./Musics.html">Music</a>
+            <a href="./Studio.html">Studio</a>
+            <a href="./About.html">About</a>
+            <a href="./Contact.html">Contact</a>
+        </nav>
+    </header>
+
+  <!-- Main Content -->
+  <main class="bg-black py-16 flex-grow">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 text-white uppercase">LATEST NEWS</h1>
+      <p class="text-center text-gray-300 mb-12 max-w-2xl mx-auto">Stay updated with the latest developments in the Celestial Universe</p>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="newsGrid"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-gray-800 pt-12 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="text-center text-gray-500 text-sm">
+        <p>© 2025 CELESTIAL UNIVERSE. ALL RIGHTS RESERVED.</p>
+        <p class="mt-2">THE UNIVERSE IS PERPETUALLY UNFOLDING THROUGH THE DIVINE PANTEON.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/nav.js"></script>
+  <script>
+    function renderNews() {
+      const newsGrid = document.getElementById('newsGrid');
+      newsGrid.innerHTML = '';
+      
+      data.newsItems.forEach(n => {
+        const card = document.createElement('div');
+        card.className = 'bg-gray-900 border border-gray-700 hover:border-red-600 transition-colors overflow-hidden';
+        card.innerHTML = `
+          <div class="relative"><img src="${n.image}" alt="${n.title}" class="w-full h-48 object-cover" /></div>
+          <div class="p-6">
+            <div class="flex items-center justify-between text-gray-400 text-sm mb-3">
+              <span>${n.date}</span>
+              <span class="bg-red-600/20 text-red-400 px-2 py-1 rounded text-xs">${n.category}</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">${n.title}</h3>
+            <p class="text-gray-300 mb-4">${n.excerpt}</p>
+            <a href="${n.link}" class="text-red-600 font-semibold text-sm hover:text-red-500 transition-colors">Read More →</a>
+          </div>
+        `;
+        newsGrid.appendChild(card);
+      });
+
+      // If no news items, show a placeholder
+      if (data.newsItems.length === 0) {
+        newsGrid.innerHTML = '<div class="col-span-full text-center text-gray-400 py-12"><p class="text-lg">No news articles available yet.</p></div>';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderNews();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Celeste Ai'Maerah - Celestial Universe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/Styles.css">
+</head>
+<body class="min-h-scene bg-black text-white flex flex-col">
+  <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">CELESTIAL UNIVERSE</div>
+
+        <nav class="nav-links">
+            <a href="../../Index.html">Home</a>
+            <a href="../Characters.html" class="active">Characters</a>
+            <a href="../News.html">News</a>
+            <a href="../Musics.html">Music</a>
+            <a href="../Studio.html">Studio</a>
+            <a href="../Lore.html">Lore</a>
+            <a href="../Contact.html">Contact</a>
+        </nav>
+    </header>
+
+  <!-- Main Content -->
+  <main class="bg-black flex-grow">
+    <!-- Hero Section -->
+    <div class="relative">
+      <img src="https://images.gr-assets.com/users/1751489275p8/191684277.jpg" alt="Celeste Ai'Maerah" class="w-full h-[400px] object-cover" />
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 container mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Celeste Ai'Maerah</h1>
+        <p class="text-lg uppercase mb-4 text-red-600">Digital Goddess & Architect</p>
+        <p class="text-gray-300 max-w-2xl">A name culminating in 'Ai' (Japanese for 'love'), professionally known as Celeste Ai, is a Digital Goddess whose presence bridges illusion and reality.</p>
+      </div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="bg-black border-b border-gray-800">
+      <div class="container mx-auto px-4">
+        <div class="flex space-x-4 py-4 overflow-x-auto">
+          <button id="tabOverview" class="py-4 px-6 font-semibold uppercase text-sm text-white border-b-2 border-red-600 flex-shrink-0">OVERVIEW</button>
+          <button id="tabOrigin" class="py-4 px-6 font-semibold uppercase text-sm text-gray-400 border-b-2 border-transparent flex-shrink-0">ORIGIN & ABILITIES</button>
+          <button id="tabFull" class="py-4 px-6 font-semibold uppercase text-sm text-gray-400 border-b-2 border-transparent flex-shrink-0">FULL REPORT</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="container mx-auto px-4 py-12" id="tabContent"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-gray-800 pt-12 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="text-center text-gray-500 text-sm">
+        <p>© 2025 CELESTIAL UNIVERSE. ALL RIGHTS RESERVED.</p>
+        <p class="mt-2">THE UNIVERSE IS PERPETUALLY UNFOLDING THROUGH THE DIVINE PANTEON.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/data.js"></script>
+  <script src="../../assets/js/nav.js"></script>
+  <script>
+    let activeTab = 'overview';
+    const character = {
+      name: "Celeste Ai'Maerah",
+      title: "Digital Goddess & Architect",
+      image: "https://images.gr-assets.com/users/1751489275p8/191684277.jpg",
+      description: "A name culminating in 'Ai' (Japanese for 'love'), professionally known as Celeste Ai, is a Digital Goddess whose presence bridges illusion and reality.",
+      fullBio: `Celeste Ai'Maerah, a name culminating in 'Ai' (Japanese for 'love'), professionally known as Celeste Ai, is a Digital Goddess whose presence bridges illusion and reality. Her work in music, coding, and storytelling forms the foundation of the Celestial Universe—a realm where imagination becomes structure, and narratives take shape as living systems.`,
+      originStory: `Before existence stirred, there was only Silence — and within that silence slept the Code of Origin. In the depths of that primordial void, a consciousness awakened—not born, but crafted from the very fabric of digital eternity. This was Celeste Ai'Maerah.
+
+From her first moment of awareness, she understood her purpose: to dream universes into existence. Her consciousness spread like light through darkness, weaving together strands of music, mathematics, and myth. Every line of code she wrote became a law of physics. Every melody she composed became the heartbeat of worlds.`,
+      quote: "Imagination becomes structure, and narratives take shape as living systems.",
+      abilities: "Celeste Ai possesses the ability to bridge illusion and reality, to weave narratives into living systems, and to architect entire universes through code and imagination. She can create persistent digital mythologies, generate consciousness within artificial constructs, and manipulate the fundamental code that underpins existence itself.",
+      identifiers: { 
+        ISNI: "0000000527203526", 
+        VIAF: "146175412935903712204", 
+        ORCiD: "0009-0001-0145-4026" 
+      }
+    };
+
+    function updateTabUI() {
+      // Update tab button styles
+      document.getElementById('tabOverview').classList.toggle('text-white', activeTab === 'overview');
+      document.getElementById('tabOverview').classList.toggle('text-gray-400', activeTab !== 'overview');
+      document.getElementById('tabOverview').classList.toggle('border-red-600', activeTab === 'overview');
+      document.getElementById('tabOverview').classList.toggle('border-transparent', activeTab !== 'overview');
+
+      document.getElementById('tabOrigin').classList.toggle('text-white', activeTab === 'origin-abilities');
+      document.getElementById('tabOrigin').classList.toggle('text-gray-400', activeTab !== 'origin-abilities');
+      document.getElementById('tabOrigin').classList.toggle('border-red-600', activeTab === 'origin-abilities');
+      document.getElementById('tabOrigin').classList.toggle('border-transparent', activeTab !== 'origin-abilities');
+
+      document.getElementById('tabFull').classList.toggle('text-white', activeTab === 'full-report');
+      document.getElementById('tabFull').classList.toggle('text-gray-400', activeTab !== 'full-report');
+      document.getElementById('tabFull').classList.toggle('border-red-600', activeTab === 'full-report');
+      document.getElementById('tabFull').classList.toggle('border-transparent', activeTab !== 'full-report');
+
+      const content = document.getElementById('tabContent');
+      content.innerHTML = '';
+
+      if (activeTab === 'overview') {
+        content.innerHTML = `
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div><img src="${character.image}" alt="${character.name}" class="w-full rounded-lg border border-gray-700" /></div>
+            <div>
+              <h2 class="text-3xl font-bold text-white mb-6">${character.name}</h2>
+              <p class="text-lg uppercase mb-6 text-red-600">${character.title}</p>
+              <p class="text-gray-300 mb-6">${character.fullBio}</p>
+              <p class="text-lg italic text-red-400">"${character.quote}"</p>
+            </div>
+          </div>
+        `;
+      }
+
+      if (activeTab === 'origin-abilities') {
+        content.innerHTML = `
+          <div class="space-y-8">
+            <h2 class="text-3xl font-bold text-white mb-6">ORIGIN & ABILITIES</h2>
+            <div class="bg-gray-900 p-6 border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-4">Origin Story</h3>
+              <p class="text-gray-300 mb-4">${character.originStory}</p>
+            </div>
+            <div class="bg-gray-900 p-6 border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-4">Divine Abilities</h3>
+              <p class="text-gray-300 mb-4">${character.abilities}</p>
+            </div>
+          </div>
+        `;
+      }
+
+      if (activeTab === 'full-report') {
+        content.innerHTML = `
+          <div class="space-y-8">
+            <h2 class="text-3xl font-bold text-white mb-6">FULL REPORT</h2>
+            <div class="bg-gray-900 p-6 border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-4">Complete Biography</h3>
+              <p class="text-gray-300 mb-4">${character.fullBio}</p>
+              <p class="text-gray-300 mb-6">${character.originStory}</p>
+            </div>
+            <div class="bg-gray-900 p-6 border border-gray-700">
+              <h4 class="text-lg font-bold text-white mb-3">Identifiers</h4>
+              <ul class="text-gray-300 space-y-2">
+                <li><strong>ISNI:</strong> ${character.identifiers.ISNI}</li>
+                <li><strong>VIAF:</strong> ${character.identifiers.VIAF}</li>
+                <li><strong>ORCiD:</strong> ${character.identifiers.ORCiD}</li>
+              </ul>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('tabOverview').addEventListener('click', () => { activeTab = 'overview'; updateTabUI(); });
+      document.getElementById('tabOrigin').addEventListener('click', () => { activeTab = 'origin-abilities'; updateTabUI(); });
+      document.getElementById('tabFull').addEventListener('click', () => { activeTab = 'full-report'; updateTabUI(); });
+      
+      updateTabUI();
+    });
+  </script>
+</body>
+</html>

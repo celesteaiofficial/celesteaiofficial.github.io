@@ -1,0 +1,212 @@
+/* Minimal custom styles for the converted Celestial Universe */
+html, body { height: 100%; }
+body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.container { max-width: 1200px; margin: 0 auto; }
+img { display: block; }
+/* small utility for aspect ratio fallback */
+.aspect-video { position: relative; padding-bottom: 56.25%; height: 0; }
+.aspect-video iframe, .aspect-video > * { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+/* small responsive height utility used in converted layout */
+.h-80 { height: 20rem; }
+/* Navigation Bar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #000;
+  border-bottom: 1px solid #1f2937;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #dc2626;
+  letter-spacing: 0.05em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  text-transform: capitalize;
+}
+
+.nav-links a:hover {
+  color: #dc2626;
+}
+
+.nav-links a.active {
+  color: #dc2626;
+  border-bottom: 2px solid #dc2626;
+  padding-bottom: 0.25rem;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+}
+
+/* Pantheon Section Styles */
+.pantheon {
+  width: 100%;
+}
+
+.pantheon-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.pantheon-header h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.pantheon-header p {
+  font-size: 1.125rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.pantheon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.pantheon-card {
+  background-color: #1a1a2e;
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.pantheon-card:hover {
+  border-color: #dc2626;
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+}
+
+.pantheon-card.image-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.pantheon-card.image-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.pantheon-card.muted {
+  background-color: #0f172a;
+  border-color: #1e293b;
+}
+
+.pantheon-card.muted:hover {
+  border-color: #dc2626;
+}
+
+.card-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.card-content .ghost-title {
+  color: #6b7280;
+}
+
+.card-content .role {
+  display: block;
+  font-size: 0.875rem;
+  color: #dc2626;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.card-content p {
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+}
+
+.read-more {
+  color: #dc2626;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.read-more:hover {
+  color: #ef4444;
+}
+
+/* Responsive Pantheon Grid */
+@media (max-width: 1024px) {
+  .pantheon-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pantheon-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .pantheon-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .pantheon-card.image-card img {
+    height: 250px;
+  }
+}

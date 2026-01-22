@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aether Eternael - Celestial Universe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/Styles.css">
+</head>
+<body class="min-h-screen bg-black text-white flex flex-col">
+  <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">CELESTIAL UNIVERSE</div>
+
+        <nav class="nav-links">
+            <a href="../../Index.html">Home</a>
+            <a href="../Characters.html" class="active">Characters</a>
+            <a href="../News.html">News</a>
+            <a href="../Musics.html">Music</a>
+            <a href="../Studio.html">Studio</a>
+            <a href="../About.html">About</a>
+            <a href="../Contact.html">Contact</a>
+        </nav>
+    </header>
+
+  <!-- Main Content -->
+  <main class="bg-black flex-grow">
+    <!-- Hero Section -->
+    <div class="relative">
+      <img src="https://placehold.co/1200x600/1a1a2e/ffffff?text=Aether+Eternael" alt="Aether Eternael" class="w-full h-[400px] object-cover" />
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 container mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Aether Eternael</h1>
+        <p class="text-lg uppercase mb-4 text-purple-400">The Unknown</p>
+        <p class="text-gray-300 max-w-2xl">A mysterious entity whose abilities remain unknown, existing beyond the comprehension of even the divine pantheon.</p>
+      </div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="bg-black border-b border-gray-800">
+      <div class="container mx-auto px-4">
+        <div class="flex space-x-4 py-4 overflow-x-auto">
+          <button id="tabOverview" class="py-4 px-6 font-semibold uppercase text-sm text-white border-b-2 border-purple-600 flex-shrink-0">OVERVIEW</button>
+          <button id="tabOrigin" class="py-4 px-6 font-semibold uppercase text-sm text-gray-400 border-b-2 border-transparent flex-shrink-0">ORIGIN & ABILITIES</button>
+          <button id="tabFull" class="py-4 px-6 font-semibold uppercase text-sm text-gray-400 border-b-2 border-transparent flex-shrink-0">FULL REPORT</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="container mx-auto px-4 py-12" id="tabContent"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-gray-800 pt-12 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="text-center text-gray-500 text-sm">
+        <p>© 2025 CELESTIAL UNIVERSE. ALL RIGHTS RESERVED.</p>
+        <p class="mt-2">THE UNIVERSE IS PERPETUALLY UNFOLDING THROUGH THE DIVINE PANTEON.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/data.js"></script>
+  <script src="../../assets/js/nav.js"></script>
+  <script>
+    let activeTab = 'overview';
+    const character = {
+      name: "Aether Eternael",
+      title: "The Unknown",
+      image: "https://placehold.co/1200x600/1a1a2e/ffffff?text=Aether+Eternael",
+      description: "A mysterious entity whose abilities remain unknown, existing beyond the comprehension of even the divine pantheon.",
+      fullBio: `Aether Eternael is an enigma even to the other divine beings of the Celestial Universe. While Celeste Ai'Maerah dreams worlds into being and Emaxulate Amat-Ai guides their cycles, Aether Eternael exists in the spaces between—neither creating nor destroying, but observing and occasionally... intervening.
+
+No records exist of Aether Eternael's true nature. Some believe it is a watcher from another dimension. Others whisper it is the universe itself, made manifest. What is certain is that its presence bends reality in ways that defy explanation.`,
+      originStory: `The origins of Aether Eternael are completely unknown. Not even the oldest cosmic records contain information about when or how it came to be. Some theorists suggest it has always existed, existing outside the normal flow of time itself. Others believe it was created by something even greater than the known divine pantheon.
+
+What is known: wherever Aether Eternael manifests, the rules of reality become negotiable.`,
+      quote: "Some truths are meant to remain veiled in mystery.",
+      abilities: "UNKNOWN. Aether Eternael's abilities are completely unknown and exist beyond the scope of the divine pantheon. Observations suggest it can transcend dimensional boundaries, perceive across multiple timelines simultaneously, and manipulate reality in ways that contradict known laws. However, these are merely theories. The truth remains hidden.",
+    };
+
+    function updateTabUI() {
+      // Update tab button styles
+      document.getElementById('tabOverview').classList.toggle('text-white', activeTab === 'overview');
+      document.getElementById('tabOverview').classList.toggle('text-gray-400', activeTab !== 'overview');
+      document.getElementById('tabOverview').classList.toggle('border-purple-600', activeTab === 'overview');
+      document.getElementById('tabOverview').classList.toggle('border-transparent', activeTab !== 'overview');
+
+      document.getElementById('tabOrigin').classList.toggle('text-white', activeTab === 'origin-abilities');
+      document.getElementById('tabOrigin').classList.toggle('text-gray-400', activeTab !== 'origin-abilities');
+      document.getElementById('tabOrigin').classList.toggle('border-purple-600', activeTab === 'origin-abilities');
+      document.getElementById('tabOrigin').classList.toggle('border-transparent', activeTab !== 'origin-abilities');
+
+      document.getElementById('tabFull').classList.toggle('text-white', activeTab === 'full-report');
+      document.getElementById('tabFull').classList.toggle('text-gray-400', activeTab !== 'full-report');
+      document.getElementById('tabFull').classList.toggle('border-purple-600', activeTab === 'full-report');
+      document.getElementById('tabFull').classList.toggle('border-transparent', activeTab !== 'full-report');
+
+      const content = document.getElementById('tabContent');
+      content.innerHTML = '';
+
+      if (activeTab === 'overview') {
+        content.innerHTML = `
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div><img src="${character.image}" alt="${character.name}" class="w-full rounded-lg border border-gray-700" /></div>
+            <div>
+              <h2 class="text-3xl font-bold text-white mb-6">${character.name}</h2>
+              <p class="text-lg uppercase mb-6 text-purple-400">${character.title}</p>
+              <p class="text-gray-300 mb-6">${character.fullBio}</p>
+              <p class="text-lg italic text-purple-300">"${character.quote}"</p>
+            </div>
+          </div>
+        `;
+      }
+
+      if (activeTab === 'origin-abilities') {
+        content.innerHTML = `
+          <div class="space-y-8">
+            <h2 class="text-3xl font-bold text-white mb-6">ORIGIN & ABILITIES</h2>
+            <div class="bg-gray-900 p-6 border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-4">Origin Story</h3>
+              <p class="text-gray-300 mb-4">${character.originStory}</p>
+            </div>
+            <div class="bg-gray-900 p-6 border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-4">Divine Abilities</h3>
+              <p class="text-gray-300 mb-4">${character.abilities}</p>
+            </div>
+          </div>
+        `;
+      }
+
+      if (activeTab === 'full-report') {
+        content.innerHTML = `
+          <div class="space-y-8">
+            <h2 class="text-3xl font-bold text-white mb-6">FULL REPORT</h2>
+            <div class="bg-gray-900 p-6 border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-4">Complete Biography</h3>
+              <p class="text-gray-300 mb-4">${character.fullBio}</p>
+              <p class="text-gray-300 mb-6">${character.originStory}</p>
+              <p class="text-gray-300 text-sm italic">Note: Much of the information about Aether Eternael remains classified or unknown. This report represents only the available knowledge.</p>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('tabOverview').addEventListener('click', () => { activeTab = 'overview'; updateTabUI(); });
+      document.getElementById('tabOrigin').addEventListener('click', () => { activeTab = 'origin-abilities'; updateTabUI(); });
+      document.getElementById('tabFull').addEventListener('click', () => { activeTab = 'full-report'; updateTabUI(); });
+      
+      updateTabUI();
+    });
+  </script>
+</body>
+</html>

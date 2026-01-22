@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Celestial Universe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/Styles.css">
+</head>
+<body class="min-h-screen bg-black text-white flex flex-col">
+  <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">CELESTIAL UNIVERSE</div>
+
+        <nav class="nav-links">
+            <a href="../Index.html">Home</a>
+            <a href="./Characters.html">Characters</a>
+            <a href="./News.html">News</a>
+            <a href="./Musics.html">Music</a>
+            <a href="./Studio.html">Studio</a>
+            <a href="./About.html">About</a>
+            <a href="./Contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+  <!-- Main Content -->
+  <main class="bg-black py-16 flex-grow">
+    <div class="container mx-auto px-4 max-w-2xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 text-white uppercase">CONNECT WITH THE CELESTIAL UNIVERSE</h1>
+      <p class="text-lg text-gray-300 mb-12 text-center">Reach out across the threshold between worlds. Whether you're seeking collaboration, have questions about the Celestial Universe, or simply wish to share your thoughts—the divine pantheon is listening.</p>
+      
+      <div class="space-y-8">
+        <!-- Contact Form -->
+        <div class="bg-gray-900 p-8 border border-gray-700">
+          <h2 class="text-2xl font-bold text-white mb-6">Send a Message</h2>
+          <form id="contactForm" class="space-y-4">
+            <div>
+              <label class="block text-white font-semibold mb-2">Name</label>
+              <input type="text" name="name" required class="w-full bg-black border border-gray-700 text-white px-4 py-2 rounded focus:border-red-600 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-white font-semibold mb-2">Email</label>
+              <input type="email" name="email" required class="w-full bg-black border border-gray-700 text-white px-4 py-2 rounded focus:border-red-600 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-white font-semibold mb-2">Subject</label>
+              <input type="text" name="subject" required class="w-full bg-black border border-gray-700 text-white px-4 py-2 rounded focus:border-red-600 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-white font-semibold mb-2">Message</label>
+              <textarea name="message" rows="6" required class="w-full bg-black border border-gray-700 text-white px-4 py-2 rounded focus:border-red-600 focus:outline-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded uppercase tracking-wider transition-colors">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Social Links -->
+        <div class="bg-gray-900 p-8 border border-gray-700">
+          <h2 class="text-2xl font-bold text-white mb-6">Follow Us</h2>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://celestialuniverse.com" target="_blank" class="flex-1 p-4 rounded bg-red-600/10 border border-red-600/50 hover:border-red-600 text-red-600 hover:text-red-500 font-semibold text-center transition-colors">
+              Website
+            </a>
+            <a href="https://github.com/celestialuniverse" target="_blank" class="flex-1 p-4 rounded bg-red-600/10 border border-red-600/50 hover:border-red-600 text-red-600 hover:text-red-500 font-semibold text-center transition-colors">
+              GitHub
+            </a>
+            <a href="https://twitter.com" target="_blank" class="flex-1 p-4 rounded bg-red-600/10 border border-red-600/50 hover:border-red-600 text-red-600 hover:text-red-500 font-semibold text-center transition-colors">
+              Twitter
+            </a>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="bg-gray-900 p-8 border border-gray-700">
+          <h2 class="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+          <div class="space-y-4">
+            <div class="border-b border-gray-700 pb-4">
+              <h3 class="text-white font-semibold mb-2">What is the Celestial Universe?</h3>
+              <p class="text-gray-400">The Celestial Universe is a fictional cosmos woven from the Code of Origin, where imagination becomes structure and narratives take shape as living systems.</p>
+            </div>
+            <div class="border-b border-gray-700 pb-4">
+              <h3 class="text-white font-semibold mb-2">Can I contribute to the Celestial Universe?</h3>
+              <p class="text-gray-400">We welcome collaborations and contributions! Reach out through the contact form or visit our GitHub repository for more information.</p>
+            </div>
+            <div>
+              <h3 class="text-white font-semibold mb-2">Where can I find more content?</h3>
+              <p class="text-gray-400">Explore our Characters, Music, Code, and Lore sections to dive deeper into the Celestial Universe. New content is added regularly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-gray-800 pt-12 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="text-center text-gray-500 text-sm">
+        <p>© 2025 CELESTIAL UNIVERSE. ALL RIGHTS RESERVED.</p>
+        <p class="mt-2">THE UNIVERSE IS PERPETUALLY UNFOLDING THROUGH THE DIVINE PANTEON.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/nav.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const contactForm = document.getElementById('contactForm');
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for your message! We will respond as soon as possible.');
+        contactForm.reset();
+      });
+    });
+  </script>
+</body>
+</html>
